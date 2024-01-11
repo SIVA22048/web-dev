@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GPA & CGPA</title>
-   <style type="text/css">
+  <title>CGPA and GPA Calculator</title>
+ <style type="text/css">
 h1{
 color: blue;
-position: center;
 }
 
-#cumdiv{
+#pre{
 color: red;
 }
-#tbl{
+lable{
 color: red;
 height: 200px;
 width: 500px;
@@ -19,14 +18,14 @@ width: 500px;
 #a1{
 color: green;
 }
-#addrow{
+#add-course{
 background-color: yellow;
 color: black;
 border-color: yellow;
 height: 40px;
 width: 10%;
 }
-#calcbtn{
+#calculate-gpa{
 background-color: blue;
 color: white;
 border-color: blue;
@@ -39,19 +38,6 @@ color: white;
 border-color: red;
 height: 40px;
 width: 10%;
-
-}
-#area{
-width: 35%;
-}
-#gpa,#cgpa,#chours{
-width: 35%;
-}
-#gpa1{
-width: 35%;
-}
-#total{
-width: 35%;
 }
 div {
   padding-top: 10px;
@@ -63,164 +49,230 @@ body{
 background-color: lightgreen;
 }
 </style>
-
 </head>
 <body>
-
-
-<div id="lcol" class="">
-
-	<div id="doc" class=" p-3 bg-secondary text-white  ">
-		
-		<div class="p-2 bg-info text-warning">
-			<h1 class="text-warning text-center">GPA & GPA Calculator</h1>
-			<form id="calcform" name="calcform" class="calc" autocomplete="off">
-			<table id="tbl">
-				<tr>
-					<td>Course</td>
-					<td>Grade</td>
-					<td>Credits</td>
-				</tr>
-				<tbody>
-				</tbody>
-			</table>
-		   <div id="cumdiv" class="form-group">
-		      <label for="gpa">Previous cumulative GPA & credits (optional)</label>
-		      <div class="row">
-		      <div class="col">
-		      
-		      <input type="number" id="cgpa" min="0" step="any" placeholder="cumulative gpa" class="form-control">
-		      </div>
-		      <div class="col">
-		      
-		      <input type="number" id="chours" min="0" step="any" placeholder="credits" class="form-control">
-		      </div>
-		      </div>
-		   </div>
-		   <div class="form-group">
-		      <button type="button" id="calcbtn" title="Calculate" class="btn btn-primary"> Calculate</button>
-		      <button type="reset" id="resetbtn" title="Reset" class="btn btn-danger"> Reset</button>
-		      <button type="button" id="addrow" title="Add row" class="btn btn-warning"> Row</button>
-		   </div>
-		   <div class="form-group">
-		      <label for="gpa1" id="a1">GPA</label><br>
-		      <input type="text" id="gpa1" readonly class="form-control">
-		   </div>
-		   <div class="form-group">
-		      <label for="gpa" id="a1">CGPA</label><br>
-		      <input type="text" id="gpa" readonly class="form-control">
-		   </div>
-<div class="form-group">
-		      <div id="gpacircle" class="red small mb-3"></div>
-	
-		 
-		      <label for="total" id="a1">Total credits</label><br>
-		      <input type="number" step="any" id="total" class="form-control" readonly>
-		   </div>
-		   <div class="form-group">
-		      <label for="area" id="a1">CGPA calculation</label><br>
-		      <input rows="3" id="area" class="form-control" readonly>
-		   </div>
-			</form>
-	  </div>
+  <h1>CGPA and GPA Calculator</h1>
+  <div id="calculator">
+    <form id="course-form">
+     <label for="course1">Course 1:</label>
+      <input type="text" id="course1" placeholder="Course Name">
+      <input type="number" id="credits1" placeholder="Credits">
+      <select id="grade1">
+<option value="--">--</option>
+        <option value="O">O</option>
+        <option value="A+">A+</option>
+<option value="A">A</option>
+        <option value="B+">B+</option>
+<option value="B">B</option>
+        <option value="C+">C+</option>
+<option value="F">F</option>
         
+        </select><br>
+
+<div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script>
-   var irow=0;
-   $( document ).ready(function() {
-      $("#calcbtn").click( Calc );
-      $("#resetbtn").click( OnReset );
-      $("#addrow").click( AddRow );
+<label for="course2">Course 2:</label>
+      <input type="text" id="course2" placeholder="Course Name">
+      <input type="number" id="credits2" placeholder="Credits">
+      <select id="grade2">
+<option value="--">--</option>
+        <option value="O">O</option>
+        <option value="A+">A+</option>
+<option value="A">A</option>
+        <option value="B+">B+</option>
+<option value="B">B</option>
+        <option value="C+">C+</option>
+<option value="F">F</option>
+        
+        </select><br>
+
+
+<div>
+</div>
+
+<label for="course3">Course 3:</label>
+      <input type="text" id="course3" placeholder="Course Name">
+      <input type="number" id="credits3" placeholder="Credits">
+      <select id="grade3">
+<option value="--">--</option>
+        <option value="O">O</option>
+        <option value="A+">A+</option>
+<option value="A">A</option>
+        <option value="B+">B+</option>
+<option value="B">B</option>
+        <option value="C+">C+</option>
+<option value="F">F</option>
+        
+        </select><br>
+
+<div>
+</div>
+
+
+<label for="course4">Course 4:</label>
+      <input type="text" id="course4" placeholder="Course Name">
+      <input type="number" id="credits4" placeholder="Credits">
+      <select id="grade4">
+<option value="--">--</option>
+        <option value="O">O</option>
+        <option value="A+">A+</option>
+<option value="A">A</option>
+        <option value="B+">B+</option>
+<option value="B">B</option>
+        <option value="C+">C+</option>
+<option value="F">F</option>
+        
+        </select><br>
+
+
+<div>
+</div>
+
+
+<label for="course5">Course 5:</label>
+      <input type="text" id="course5" placeholder="Course Name">
+      <input type="number" id="credits5" placeholder="Credits">
+      <select id="grade5">
+<option value="--">--</option>
+        <option value="O">O</option>
+        <option value="A+">A+</option>
+<option value="A">A</option>
+        <option value="B+">B+</option>
+<option value="B">B</option>
+        <option value="C+">C+</option>
+<option value="F">F</option>
+        
+        </select><br>
+<div>
+</div>
+      
+    </form><br>
+<p id="pre">Previous Cgpa:</p/>
+
+ <input type="number" id="pcgpa" placeholder="Cgpa">
+<p id="pre">Previous Credits:</p/>
+      <input type="number" id="tcredits" placeholder="Credits"><br>
+<div>
+</div>
+<button type="button" id="add-course">Add Course</button>
+      <button type="button" id="calculate-gpa">Calculate GPA</button>
+<button type="reset" id="resetbtn" > Reset</button><br>
+    <p id="a1">GPA:</p>
+    <p id="result"></p><br>
+    <p id="a1">CGPA:</p>
+    <p id="results"></p><br>
+ <p id="a1">TotalCredits:</p>
+    <p id="resultss"></p>
+  </div>
+  <script>
+    const pcgpa = document.getElementById("pcgpa");
+    const tcredits = document.getElementById("tcredits");
+
+    const courseForm = document.getElementById("course-form");
+    const result = document.getElementById("result");
+    const results = document.getElementById("results");
+    const addCourseButton = document.getElementById("add-course");
+    const calculateButton = document.getElementById("calculate-gpa");
+const resetBtn = document.getElementById('resetbtn');
+
     
-      for(i=0; i<6; i++)
-         AddRow();
-   });
-   function OnReset()
-   {
-      $("#gpacircle").hide();
-   }
-   function Calc()
-   {
-      var glook=[-1,10, 9, 8, 7, 6, 5, 0, -1, -1];
-      var gpa=0;
-      var sum=0;
-      var txt1="";
-      var txt2="";
-      for(var i=1; i<=irow+1; i++)
-      {
-         hours = $("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(3) > input").val();
-         hours = parseFloat(hours);
-         igrade = $("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(2) > select").prop("selectedIndex");
-         grade = glook[igrade];
-         if( hours>0 && grade>=0 )
-         {
-            gpa+=hours*grade;
-            sum+=hours;
-            txt1+=hours+"\u00D7"+grade+"+";
-            txt2+=hours+"+";
-         }
+
+
+resetBtn.addEventListener("click",()=> {
+  document.getElementById('gpacircle').style.display = 'none'; 
+});
+
+
+
+    addCourseButton.addEventListener("click", () => {
+      const courseCount = courseForm.querySelectorAll("label").length; // Count existing courses
+      const newCourseNumber = courseCount + 1; // Generate a unique ID for the new course
+
+      
+      const courseLabel = document.createElement("label");
+      courseLabel.setAttribute("for", `course${newCourseNumber}`);
+      courseLabel.textContent = `Course ${newCourseNumber}: `;
+
+      const courseInput = document.createElement("input");
+      courseInput.setAttribute("type", "text");
+      courseInput.setAttribute("id", `course${newCourseNumber}`);
+      courseInput.setAttribute("placeholder", "Course Name");
+
+      const creditsInput = document.createElement("input");
+      creditsInput.setAttribute("type", "number");
+      creditsInput.setAttribute("id", `credits${newCourseNumber}`);
+      creditsInput.setAttribute("placeholder", "Credits");
+
+      const gradeSelect = document.createElement("select");
+      gradeSelect.setAttribute("id", `grade${newCourseNumber}`);
+
+      
+      const grades = ["--","O", "A+", "A", "B+", "B", "C+", "F"];
+      grades.forEach(grade => {
+        const option = document.createElement("option");
+        option.value = grade;
+        option.textContent = grade;
+        gradeSelect.appendChild(option);
+      });
+
+      
+      courseForm.appendChild(courseLabel);
+      courseForm.appendChild(courseInput);
+      courseForm.appendChild(creditsInput);
+      courseForm.appendChild(gradeSelect);
+      courseForm.appendChild(document.createElement("br"));
+courseForm.appendChild(document.createElement("div"));
+courseForm.appendChild(document.createElement("/div"));
+    });
+
+    // Function to calculate GPA
+    calculateButton.addEventListener("click", () => {
+      // Get grade point values for each grade
+      const gradePointValues = {
+"--":-1,
+        "O": 10,
+        "A+": 9,
+        "A": 8,
+        "B+": 7,
+        "B": 6,
+        "C+": 5,
+        "F": 0, // Assuming "F" is failing grade with 0 points
+      };
+
+      // Calculate total grade points and total credits
+      let totalGradePoints = 0;
+      let totalCredits = 0;
+
+      // Loop through courses and calculate
+      const courseInputs = courseForm.querySelectorAll("input[type='text']");
+      const creditsInputs = courseForm.querySelectorAll("input[type='number']");
+      const gradeSelects = courseForm.querySelectorAll("select");
+
+      for (let i = 0; i < courseInputs.length; i++) {
+        const courseName = courseInputs[i].value;
+        const credits = parseFloat(creditsInputs[i].value);
+        const grade = gradeSelects[i].value;
+
+        // Validate input (optional)
+        if (!credits || !gradePointValues[grade]) {
+          // Handle invalid input (e.g., display a message)
+          continue;
+        }
+
+        const gradePoints = gradePointValues[grade] * credits;
+        totalGradePoints += gradePoints;
+        totalCredits += credits;
       }
-      gpa1=gpa;
-      gpa1/=sum;
-gpa1=gpa1.toFixed(3);
-      $("#gpa1").val(gpa1);
-      cgpa=$("#cgpa").val();
-      chours=$("#chours").val();
-      cgpa = parseFloat(cgpa);
-      chours = parseFloat(chours);
-      if( cgpa>=0 && chours>0 )
-      {
-         gpa+=chours*cgpa;
-         sum+=chours;
-         txt1+=chours+"\u00D7"+cgpa+"+";
-         txt2+=chours+"+";
-      }
-      gpa/=sum;
-      gpa=gpa.toFixed(2);
-      txt1=txt1.slice(0, -1);
-      txt2=txt2.slice(0, -1);
-      var txt="("+txt1+") / ("+txt2+") = "+gpa;
-      $("#gpa").val(gpa);
-      $("#total").val(sum);
-      $("#area").val(txt);
-      var percent=25*gpa;
-      if( percent>100 ) percent=100;
-      $("#gpacircle").percircle({percent: percent,text: gpa});
-      $("#gpacircle").show();
-   }
-   function AddRow()
-   {
-      $('#tbl > tbody > tr').eq(irow++).after("<tr>\
-         <td><input type='text' name='class[]' class='form-control' placeholder='course "+irow+"'></td>\
-         <td><select name='grade[]' class='form-control'>\
-            <option selected>--</option>\
-            <option>O</option>\
-            <option>A+</option>\
-            <option>A</option>\
-            <option>B+</option>\
-            <option>B</option>\
-            <option>C+</option>\
-            <option>NP</option>\
-         </select></td>\
-         <td><input type='number' min='0' step='any' name='hours[]' class='form-control'></td>\
-      </tr>");
-   }
-   function GetLetterFromGPA(gpa)
-   {
-      var letter="";
-      var lettertbl=['O', 'A+','A','B+','B','C+','NP'];
-      var gpatbl=[10, 9, 8, 7, 6, 5, 0];
-      for(var i=0; i<gpatbl.length; i++)
-         if( gpa>=gpatbl[i] )
-         {
-            letter = lettertbl[i];
-            break;
-         }
-      return letter;
-   }
-</script>
+      const gpa = totalGradePoints / totalCredits;
+
+      // Display results
+      result.textContent = gpa.toFixed(3);
+      const cgpa = (gpa * totalCredits + pcgpa.value * tcredits.value) / (totalCredits + parseFloat(tcredits.value));
+      results.textContent = cgpa.toFixed(2);
+resultss.textContent = (totalCredits + parseFloat(tcredits.value));
+    });
+  </script>
 </body>
 </html>
